@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PRL AGENCY - FMCG Goods Wholesaler</title>
+  <style>
+    body {font-family: Arial, sans-serif; margin: 0; background: #f4f4f4;}
+    header {background: #0051a8; color: #fff; padding: 1.5rem 1rem; text-align: center;}
+    nav {background: #003c7e; color: #fff; display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; padding: 1rem 0;}
+    nav a {color: #fff; text-decoration: none; padding: 0.2rem 1rem; border-radius: 3px;}
+    nav a:hover {background: #0051a8;}
+    .container {max-width: 900px; margin: 2rem auto; background: #fff; border-radius: 8px; padding: 2rem;}
+    .info {display: flex; flex-wrap: wrap; gap: 2rem;}
+    .info-section {flex: 1 1 220px;}
+    .hours {background: #e6f1ff; padding: 1rem; border-radius: 6px; margin-top: 1rem;}
+    .cta-button {display: inline-block; margin: 1rem 1rem 0 0; background: #0051a8; color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 4px; text-decoration: none;}
+    .cta-button:hover {background: #003c7e;}
+    section {margin-top: 2rem;}
+    footer {text-align: center; padding: 2rem 0; background: #ebebeb; color: #555; margin-top: 2rem;}
+    @media (max-width: 600px) {
+      .container {padding: 1rem;}
+      .info {flex-direction: column;}
+      nav {flex-direction: column;}
+      nav a {margin-bottom: 0.5rem;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>PRL AGENCY</h1>
+    <p>FMCG Goods Wholesaler</p>
+  </header>
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Parties</a>
+    <a href="#">Items</a>
+    <a href="#">Sale</a>
+    <a href="#">Purchase</a>
+    <a href="#">Reports</a>
+    <a href="#">Marketing Tools</a>
+    <a href="#">Settings</a>
+  </nav>
+  <div class="container">
+    <div class="info">
+      <div class="info-section">
+        <h2>Business Information</h2>
+        <p><strong>Description:</strong> AI Assist Available</p>
+        <p><strong>Contact:</strong> 088706 13862</p>
+        <p><strong>Website:</strong> <a href="#">Add Website</a></p>
+      </div>
+      <div class="info-section hours">
+        <h2>Business Hours</h2>
+        <p>Mon-Sat: 09:00 - 18:30<br>Sun: 09:00 - 17:00</p>
+        <div id="openStatus"></div>
+      </div>
+    </div>
+    <a class="cta-button" href="#">Add Sale</a>
+    <a class="cta-button" href="#">Purchase Invoices</a>
+    <a class="cta-button" href="#">WhatsApp Marketing</a>
+    <a class="cta-button" href="#">Add Review</a>
+    <section>
+      <h2>Reviews & Ratings</h2>
+      <p>No reviews yet. <a href="#">Add one now!</a></p>
+    </section>
+  </div>
+  <footer>
+    &copy; 2025 PRL AGENCY. All rights reserved.
+  </footer>
+  <script>
+    function checkOpenStatus() {
+      const now = new Date();
+      const day = now.getDay(); // 0 (Sun) - 6 (Sat)
+      const hour = now.getHours();
+      const minute = now.getMinutes();
+      let open = false;
+      if (day >= 1 && day <= 6) {
+        if ((hour > 9 || (hour === 9 && minute >= 0)) && (hour < 18 || (hour === 18 && minute <= 30))) open = true;
+      } else if (day === 0) {
+        if ((hour > 9 || (hour === 9 && minute >= 0)) && (hour < 17 || (hour === 17 && minute === 0))) open = true;
+      }
+      document.getElementById('openStatus').textContent = open ? "Status: OPEN" : "Status: CLOSED";
+    }
+    checkOpenStatus();
+  </script>
+</body>
+</html>
